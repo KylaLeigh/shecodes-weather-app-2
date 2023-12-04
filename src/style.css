@@ -70,14 +70,15 @@ main {
 }
 
 .weather-app-temp {
-  font-size: 60px;
+  font-size: 80px;
   font-weight: bold;
   margin-left: 10px;
+  line-height: 80px;
 }
 
 .weather-app-icon {
-  font-size: 40px;
-  margin-top: 10px;
+  width: 80px;
+  height: 80px;
 }
 
 .weather-app-unit {
