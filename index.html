@@ -29,8 +29,9 @@
           <input type="submit" value="search" class="search-form-button" />
         </form>
       </header>
+
       <main>
-        <div class="weather-app-data">
+        <section class="weather-app-data">
           <div>
             <h1 class="weather-app-city" id="weather-app-city"></h1>
             <p class="weather-app-details">
@@ -45,8 +46,26 @@
             <div class="weather-app-temp" id="temperature"></div>
             <div class="weather-app-unit">°C</div>
           </div>
-        </div>
+        </section>
+
+        <section class="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="forecast-day">Thur</div>
+              <img
+                src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/rain-night.png"
+                alt="weather icon"
+                width="36"
+              />
+              <div class="forecast-temp">
+                <span class="forecast-max-temp">18°C</span>
+                <span class="forecast-min-temp"> / 12°C</span>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
+
       <footer>
         This project was coded by
         <a href="https://github.com/KylaLeigh" target="_blank">Kyla Leigh</a>
@@ -54,9 +73,10 @@
         <a
           href="https://github.com/KylaLeigh/shecodes-weather-app-2"
           target="_blank"
-          >GitHub</a
         >
-        hoted on
+          GitHub
+        </a>
+        and hosted on
         <a
           href="https://shecodes-weatherapp-kylaleigh.netlify.app/"
           target="_blank"

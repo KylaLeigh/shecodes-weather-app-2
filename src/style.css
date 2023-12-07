@@ -86,6 +86,35 @@ main {
   margin-top: 8px;
 }
 
+.weather-forecast {
+  color: #000000;
+}
+
+.row {
+  gap: 10px;
+  overflow: scroll;
+}
+
+.col-2 {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.forecast-day {
+  opacity: 0.5;
+  font-size: 16px;
+}
+
+.forecast-max-temp {
+  font-size: 13px;
+}
+
+.forecast-min-temp {
+  opacity: 0.5;
+  font-size: 13px;
+}
+
 footer {
   border-top: 1px solid #f9f7fd;
   color: rgba(0, 0, 0, 0.6);
