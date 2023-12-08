@@ -87,12 +87,15 @@ main {
 }
 
 .weather-forecast {
+  display: flex;
+  justify-content: space-evenly;
   color: #000000;
 }
 
 .row {
   gap: 10px;
   overflow: scroll;
+  text-align: center;
 }
 
 .col-2 {
