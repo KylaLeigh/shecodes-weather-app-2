@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="src/style.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
     <title>Weather App</title>
@@ -36,7 +36,8 @@
             <h1 class="weather-app-city" id="weather-app-city"></h1>
             <p class="weather-app-details">
               <time id="date"></time>
-              <span id="weather-description"></span> <br />
+
+              <span id="weather-description"></span><br />
               Humidity: <strong><span id="humidity"></span>%</strong>, Wind:
               <strong><span id="wind-speed"></span>km/h</strong>
             </p>
@@ -53,10 +54,17 @@
 
       <footer>
         This project was coded by
-        <a href="https://github.com/KylaLeigh" target="_blank">Kyla Leigh</a>
+        <a
+          href="https://github.com/KylaLeigh"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          Kyla Leigh
+        </a>
         and is open-sourced on
         <a
           href="https://github.com/KylaLeigh/shecodes-weather-app-2"
+          rel="noopener noreferrer"
           target="_blank"
         >
           GitHub
@@ -64,12 +72,14 @@
         hosted on
         <a
           href="https://shecodes-weatherapp-kylaleigh.netlify.app/"
+          rel="noopener noreferrer"
           target="_blank"
         >
           Netlify</a
         >
       </footer>
     </div>
+
     <script src="src/index.js"></script>
   </body>
 </html>

@@ -1,1 +1,1 @@
-# shecodes-weather-app-2
+# Shecodes Weather App v2
