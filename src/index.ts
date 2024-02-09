@@ -1,6 +1,40 @@
+import axios, { AxiosResponse } from "axios";
+
+interface ForecastResponse {
+  city: string;
+  coordinates: Coordinates;
+  country: string;
+  daily: Day[];
+}
+
+interface Coordinates {
+latitude: number;
+longitude: number;
+}
+
+interface Day {
+   condition: Condition;
+   temperature: Temperature;
+   time: number;
+   wind: {speed: number};
+ };
+
+ interface Temperature {
+  day: number;
+  humidity: number;
+  maximum: number;
+  minimum: number;
+ }
+
+ interface Condition {
+  description: string;
+  icon: string;
+  icon_url: string;
+ }
+
 const apiKey = "deb00dfcbf3af9a3at06d22o4fea87c9";
 
-function updateWeather(response) {
+function updateWeather(response:) {
   const temperatureElement = document.querySelector("#temperature");
   const cityElement = document.querySelector("#weather-app-city");
   const descriptionElement = document.querySelector("#weather-description");
@@ -21,7 +55,7 @@ function updateWeather(response) {
   temperatureElement.innerHTML = Math.round(currentTemperature);
 }
 
-function formatDate(date) {
+function formatDate(date: Date) {
   const minutes = date.getMinutes();
   const hours = date.getHours();
   const days = [
@@ -35,43 +69,41 @@ function formatDate(date) {
   ];
   const day = days[date.getDay()];
 
-  if (minutes < 0) {
-    minutes = `0${minutes}`;
-  }
-
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes.toString().padStart(2, "0")}`;
 }
 
-function searchForCity(city) {
+function searchForCity(city: string) {
   const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateWeather);
 }
 
-function handleSearch(event) {
+function handleSearch(event: Event) {
   event.preventDefault();
 
-  const searchInput = document.querySelector("#search-form-input");
+  const searchInput = document.querySelector(
+    "#search-form-input"
+  ) as HTMLInputElement;
 
-  searchForCity(searchInput.value);
-  getForecast(searchInput.value);
+  searchForCity(searchInput?.value);
+  getForecast(searchInput?.value);
 }
 
-function formatForecastDay(timestamp) {
+function formatForecastDay(timestamp: number) {
   const date = new Date(timestamp * 1000);
   const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[date.getDay()];
 }
 
-function getForecast(city) {
+function getForecast(city: string) {
   const apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(displayForecast);
+  axios.get<ForecastResponse>(apiUrl).then(displayForecast);
 }
 
-function displayForecast(response) {
+function displayForecast(response: AxiosResponse<ForecastResponse>): void {
   let forecastHtml = "";
 
-  response.data.daily.forEach(function (day, index) {
+  response.data.daily.forEach(function (day: Day, index) {
     if (index < 6 && index > 0) {
       forecastHtml =
         forecastHtml +
@@ -94,11 +126,14 @@ function displayForecast(response) {
   });
 
   const forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = forecastHtml;
+
+  if (forecastElement) {
+    forecastElement.innerHTML = forecastHtml;
+  }
 }
 
 const searchFormElement = document.querySelector("#search-form");
-searchFormElement.addEventListener("submit", handleSearch);
+searchFormElement?.addEventListener("submit", handleSearch);
 
 searchForCity("London");
 getForecast("London");
