@@ -15,13 +15,33 @@ function updateWeather(response: AxiosResponse<CurrentWeatherResponse>): void {
   const currentTemperature = response.data.temperature.current;
   const date = new Date(response.data.time * 1000);
 
-  iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
-  dateElement.innerHTML = formatDate(date);
-  windSpeedElement.innerHTML = response.data.wind.speed;
-  humidityElement.innerHTML = response.data.temperature.humidity;
-  descriptionElement.innerHTML = response.data.condition.description;
-  cityElement.innerHTML = response.data.city;
-  temperatureElement.innerHTML = Math.round(currentTemperature);
+  if (iconElement) {
+    iconElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"/>`;
+  }
+
+  if (dateElement) {
+    dateElement.innerHTML = formatDate(date);
+  }
+
+  if (cityElement) {
+    cityElement.innerHTML = response.data.city;
+  }
+
+  if (descriptionElement) {
+    descriptionElement.innerHTML = response.data.condition.description;
+  }
+
+  if (temperatureElement) {
+    temperatureElement.innerHTML = Math.round(currentTemperature).toString();
+  }
+
+  if (humidityElement) {
+    humidityElement.innerHTML = response.data.temperature.humidity.toString();
+  }
+
+  if (windSpeedElement) {
+    windSpeedElement.innerHTML = response.data.wind.speed.toString();
+  }
 }
 
 function formatDate(date: Date) {
