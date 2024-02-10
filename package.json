@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/KylaLeigh/shecodes-weather-app-2#readme",
   "scripts": {
-    "build": "tsc -p ./tsconfig.json ",
+    "build": "tsc -p ./tsconfig.json && cp ./index.html ./dist && cp ./src/style.css ./dist && cp ./package.json ./dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {

@@ -2,9 +2,9 @@
   "files": ["./src/index.ts"],
   "include": ["./src/**/*.ts"],
   "compilerOptions": {
-    "target": "es2016",
-    "lib": ["DOM", "ESNext"],
+    "target": "ES5",
     "module": "commonjs",
+    "lib": ["DOM", "ESNext", "ES5", "ES6"],
     "baseUrl": "./",
     "outDir": "./dist/",
     "esModuleInterop": true,
